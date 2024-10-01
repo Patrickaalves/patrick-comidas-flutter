@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../models/FoodItem.dart';
+import '../models/food_item.dart';
 
 class CartController extends GetxController {
   var cartItems = <FoodItem>[].obs;
