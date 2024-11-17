@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/address_page.dart';
 import 'package:get/get.dart';
 import '../controllers/cart_controller.dart';
 
@@ -33,7 +34,8 @@ class CartPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     var cartItem = cartController.cartItems[index];
                     return ListTile(
-                      leading: Image.network(cartItem.imageUrl, width: 50, height: 50),
+                      leading: Image.network(cartItem.imageUrl,
+                          width: 50, height: 50),
                       title: Text(cartItem.name),
                       subtitle: Text('\$${cartItem.price}'),
                       trailing: IconButton(
@@ -52,9 +54,12 @@ class CartPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Total', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                    Text('Total',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
                     Obx(() => Text('\$${cartController.totalPrice}',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold))),
                   ],
                 ),
               ),
@@ -63,13 +68,8 @@ class CartPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Ação de finalizar pedido
-                    Get.snackbar(
-                      'Pedido realizado',
-                      'Seu pedido foi enviado com sucesso!',
-                      snackPosition: SnackPosition.BOTTOM,
-                    );
-                    cartController.clearCart();
+                    // Navegar para a tela de endereço
+                    Get.to(() => address_page());
                   },
                   child: Text('Finalizar Pedido'),
                   style: ElevatedButton.styleFrom(
