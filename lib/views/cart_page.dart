@@ -3,7 +3,7 @@ import 'package:flutter_application_1/views/address_page.dart';
 import 'package:get/get.dart';
 import '../controllers/cart_controller.dart';
 
-class CartPage extends StatelessWidget {
+class cart_page extends StatelessWidget {
   final CartController cartController = Get.put(CartController());
 
   @override

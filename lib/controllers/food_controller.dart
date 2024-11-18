@@ -15,12 +15,36 @@ class FoodController extends GetxController {
   void loadFoodItems() {
     // Simulação de carregamento de itens de comida
     foodItems.addAll([
-      FoodItem(id: '1', name: 'Pizza', category: 'Pizza', price: 9.99, imageUrl: 'https://...', description: 'description'),
-      FoodItem(id: '2', name: 'Burger', category: 'Burger', price: 5.99, imageUrl: 'https://...', description: 'description'),
-      FoodItem(id: '3', name: 'Sushi', category: 'Sushi', price: 12.99, imageUrl: 'https://...', description: 'description'),
-      // Adicione mais itens conforme necessário
+      FoodItem(
+        id: '1',
+        name: 'Pizza',
+        category: 'Pizza',
+        price: 9.99,
+        imageUrl:
+            'https://example.com/images/pizza.jpg', // URL de uma imagem real de pizza
+        description: 'Deliciosa pizza de pepperoni.',
+      ),
+      FoodItem(
+        id: '2',
+        name: 'Burger',
+        category: 'Burger',
+        price: 5.99,
+        imageUrl:
+            'https://example.com/images/burger.jpg', // URL de uma imagem real de hambúrguer
+        description: 'Saboroso hambúrguer com queijo.',
+      ),
+      FoodItem(
+        id: '3',
+        name: 'Sushi',
+        category: 'Sushi',
+        price: 12.99,
+        imageUrl:
+            'https://example.com/images/sushi.jpg', // URL de uma imagem real de sushi
+        description: 'Sushi fresco com peixe.',
+      ),
     ]);
-    filteredFoodItems.assignAll(foodItems); // Inicialmente, todos os itens são exibidos
+    filteredFoodItems
+        .assignAll(foodItems); // Inicialmente, todos os itens são exibidos
   }
 
   void setCategory(String category) {
@@ -36,7 +60,10 @@ class FoodController extends GetxController {
     } else {
       // Filtrar os itens com base na pesquisa
       filteredFoodItems.assignAll(
-        foodItems.where((item) => item.name.toLowerCase().contains(query.toLowerCase())).toList(),
+        foodItems
+            .where(
+                (item) => item.name.toLowerCase().contains(query.toLowerCase()))
+            .toList(),
       );
     }
   }
@@ -47,7 +74,9 @@ class FoodController extends GetxController {
       filteredFoodItems.assignAll(foodItems);
     } else {
       filteredFoodItems.assignAll(
-        foodItems.where((item) => item.category == selectedCategory.value).toList(),
+        foodItems
+            .where((item) => item.category == selectedCategory.value)
+            .toList(),
       );
     }
   }

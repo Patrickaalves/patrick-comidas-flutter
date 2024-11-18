@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/order_summary_page.dart';
 import 'package:get/get.dart';
+import '../controllers/cart_controller.dart';
 
 class payment_page extends StatelessWidget {
+  final CartController cartController = Get.find<CartController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,15 +39,11 @@ class payment_page extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Exibir mensagem de sucesso
-                Get.snackbar(
-                  'Pedido Confirmado',
-                  'Seu pedido foi realizado com sucesso!',
-                  snackPosition: SnackPosition.BOTTOM,
-                );
-                // Voltar para a tela inicial ou carrinho
-                Get.offAllNamed(
-                    '/home'); // Substitua '/home' pela rota desejada
+                // Gera os detalhes do pedido dinamicamente
+                final orderDetails = _generateOrderDetails();
+
+                // Navegar para a tela de resumo do pedido com os detalhes reais
+                Get.to(() => order_summary_page(orderDetails: orderDetails));
               },
               child: Text('Confirmar'),
               style: ElevatedButton.styleFrom(
@@ -54,5 +54,19 @@ class payment_page extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Gera os detalhes do pedido com base nos itens do carrinho
+  String _generateOrderDetails() {
+    final items = cartController.cartItems;
+    final totalPrice = cartController.totalPrice;
+
+    String details = 'Pedido Confirmado!\n';
+    for (var item in items) {
+      details += '- ${item.name}: R\$${item.price.toStringAsFixed(2)}\n';
+    }
+    details += 'Total: R\$${totalPrice.toStringAsFixed(2)}\n';
+    details += 'Obrigado por comprar conosco!';
+    return details;
   }
 }

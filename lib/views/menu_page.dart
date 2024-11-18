@@ -4,9 +4,10 @@ import '../controllers/food_controller.dart';
 import 'food_card.dart';
 import '../controllers/cart_controller.dart'; // Certifique-se de importar o controlador do carrinho
 
-class MenuPage extends StatelessWidget {
+class menu_page extends StatelessWidget {
   final FoodController foodController = Get.put(FoodController());
-  final CartController cartController = Get.put(CartController()); // Controlador do carrinho
+  final CartController cartController =
+      Get.put(CartController()); // Controlador do carrinho
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +66,10 @@ class MenuPage extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 10),
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 decoration: BoxDecoration(
-                  color: foodController.selectedCategory.value == categories[index]
-                      ? Colors.orange
-                      : Colors.grey[300],
+                  color:
+                      foodController.selectedCategory.value == categories[index]
+                          ? Colors.orange
+                          : Colors.grey[300],
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Center(child: Text(categories[index])),
@@ -93,5 +95,4 @@ class MenuPage extends StatelessWidget {
       );
     });
   }
-
 }
