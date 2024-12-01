@@ -13,7 +13,7 @@ class menu_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Patrick Comidas - Menu'),
+        title: Text('Centraliza - Menu'),
         actions: [
           IconButton(
             icon: Icon(Icons.shopping_cart),

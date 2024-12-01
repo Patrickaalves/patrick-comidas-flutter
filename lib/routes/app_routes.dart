@@ -10,10 +10,9 @@ class AppRoutes {
     GetPage(name: '/', page: () => menu_page()),
     GetPage(name: '/cart', page: () => cart_page()),
     GetPage(name: '/address', page: () => address_page()),
-    GetPage(name: '/payment', page: () => payment_page()),
+    GetPage(name: '/payment', page: () => PaymentPage()),
     GetPage(
         name: '/order_summary',
-        page: () => order_summary_page(
-            orderDetails: 'Resumo do pedido')),
+        page: () => order_summary_page(orderDetails: 'Resumo do pedido')),
   ];
 }

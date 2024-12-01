@@ -30,7 +30,7 @@ class address_page extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Navegar para a próxima tela de pagamento
-                Get.to(() => payment_page());
+                Get.to(() => PaymentPage());
               },
               child: Text('Próximo'),
               style: ElevatedButton.styleFrom(
